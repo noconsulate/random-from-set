@@ -3,11 +3,23 @@
 @include breakpoint(mobile, max) {
   .topPanel {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
 
     padding: 0.8rem;
 
     background-color: $panel-color;
+  }
+
+  .box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    &:first-child > span {
+      margin-right: auto;
+    }
+    &:last-child > span {
+      margin-left: auto;
+    }
   }
 }

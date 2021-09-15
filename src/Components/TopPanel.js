@@ -5,13 +5,19 @@ import "../Styles/Components/TopPanel.scss";
 const TopPanel = () => {
   return (
     <div className="topPanel">
-      <New />
-      <h2>Randos</h2>
-      <h2>old</h2>
+      <div className="box">
+        <New />
+      </div>
+      <div className="box">
+        <h2>Randos</h2>
+      </div>
+      <div className="box">
+        <h2>old</h2>
+      </div>
     </div>
   );
 };
 
-const New = () => <button className="button">New</button>;
+const New = () => <button className="button left">New</button>;
 
 export default TopPanel;
