@@ -15,10 +15,10 @@
     display: flex;
     justify-content: center;
 
-    &:first-child > span {
+    &:first-child > button {
       margin-right: auto;
     }
-    &:last-child > span {
+    &:last-child > h2 {
       margin-left: auto;
     }
   }
