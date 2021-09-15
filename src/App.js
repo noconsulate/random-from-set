@@ -7,8 +7,9 @@ import Root from "./Components/Root";
 const App = () => {
   return (
     <div>
-      <TopPanel />
       <Router>
+        <TopPanel />
+
         <Switch>
           <Route path="/">
             <Root />

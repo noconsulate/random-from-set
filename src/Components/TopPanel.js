@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "../Styles/Components/TopPanel.scss";
 
 const TopPanel = () => {
@@ -9,7 +9,8 @@ const TopPanel = () => {
         <New />
       </div>
       <div className="box">
-        <h2>Randos</h2>
+        {/* <h2>Randos</h2> */}
+        <Link to="/">Randos</Link>
       </div>
       <div className="box">
         <h2>old</h2>
