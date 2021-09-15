@@ -1,4 +1,10 @@
-.topPanel {
-  background-color: yellow;
-  margin: 0rem;
+@import "../index.scss";
+
+@include breakpoint(mobile, max) {
+  .topPanel {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
 }
