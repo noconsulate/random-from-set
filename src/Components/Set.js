@@ -12,24 +12,28 @@ const Set = () => {
     console.log(data);
     setItems(data);
   }, []);
+
+  const submitSingle = (val) => {
+    console.log("hi", val);
+  };
+
   return (
     <>
       <p>id</p>
       <p>{id}</p>
       <p>set</p>
       <p>{items}</p>
-      <Inputs />
+      <Inputs submitSingle={submitSingle} />
     </>
   );
 };
 
 const Inputs = (props) => {
-  const [single, setSingle] = useState("");
+  const [single, setSingle] = useState("34");
   const handleSingle = (event) => setSingle(event.target.value);
 
-  const submitSingle = () => {
-    alert("hi");
-  };
+  console.log(props);
+  const submitSingle = () => props.submitSingle(single);
 
   return (
     <>
