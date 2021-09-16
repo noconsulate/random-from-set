@@ -13,7 +13,7 @@ const App = () => {
         <Route exact path="/">
           <Root />
         </Route>
-        <Route path="/set">
+        <Route path="/:id">
           <Set />
         </Route>
       </Switch>

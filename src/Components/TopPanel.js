@@ -27,8 +27,9 @@ const New = () => {
   const handleNew = async () => {
     const { data, error } = await supabase.from("instances").insert({});
     console.log(data, error);
+    const id = data[0].id;
 
-    history.push("/set");
+    history.push(`/${id}`);
     console.log(history);
   };
 
