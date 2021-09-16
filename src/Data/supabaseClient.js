@@ -15,3 +15,13 @@ export const fetchSet = async (id) => {
 
   return data[0].items;
 };
+
+export const updateSet = async (id, items) => {
+  console.log(items);
+  const { data, error } = await supabase
+    .from("instances")
+    .update({ items: items })
+    .match({ id: id });
+
+  console.log(data, error);
+};

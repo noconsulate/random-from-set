@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { fetchSet } from "../Data/supabaseClient";
+import { fetchSet, updateSet } from "../Data/supabaseClient";
 
 const Set = () => {
   const { id } = useParams();
@@ -13,8 +13,13 @@ const Set = () => {
     setItems(data);
   }, []);
 
-  const submitSingle = (val) => {
+  const submitSingle = async (val) => {
     console.log("hi", val);
+
+    const newItems = items.concat(Number(val));
+    setItems(newItems);
+
+    await updateSet(id, newItems);
   };
 
   return (
@@ -42,7 +47,6 @@ const Inputs = (props) => {
         <input type="text" value={single} onChange={handleSingle} />
         <button onClick={submitSingle}>submit</button>
       </label>
-      <p>{single}</p>
     </>
   );
 };
