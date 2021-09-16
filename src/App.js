@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 import TopPanel from "./Components/TopPanel";
 import Root from "./Components/Root";
@@ -7,15 +7,12 @@ import Root from "./Components/Root";
 const App = () => {
   return (
     <div>
-      <Router>
-        <TopPanel />
-
-        <Switch>
-          <Route path="/">
-            <Root />
-          </Route>
-        </Switch>
-      </Router>
+      <TopPanel />
+      <Switch>
+        <Route path="/">
+          <Root />
+        </Route>
+      </Switch>
     </div>
   );
 };

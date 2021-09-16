@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Components/TopPanel.scss";
 
-const TopPanel = () => {
+const TopPanel = (props) => {
   return (
     <div className="topPanel">
       <div className="box">
         <New />
       </div>
       <div className="box">
-        {/* <h2>Randos</h2> */}
-        <Link to="/">Randos</Link>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <h2>Randos</h2>
+        </Link>
       </div>
       <div className="box">
         <h2>old</h2>
