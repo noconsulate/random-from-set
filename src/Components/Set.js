@@ -10,7 +10,6 @@ const Set = () => {
   useEffect(() => {
     const run = async () => {
       const data = await fetchSet(id);
-      console.log(data);
       setItems(data);
     };
 
@@ -32,16 +31,12 @@ const Set = () => {
   };
 
   const submitRange = async (start, end) => {
-    console.log(start, end);
-
     let range = [];
     for (let i = start; i <= end; i++) {
       range.push(i);
     }
-    console.log(range);
 
     let newItems = items.concat(range).sort((a, b) => a - b);
-    console.log(newItems);
     setItems(newItems);
     await updateSet(id, newItems);
   };
@@ -78,10 +73,6 @@ const Set = () => {
 
   return (
     <>
-      <p>id</p>
-      <p>{id}</p>
-      <p>set</p>
-
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
