@@ -47,7 +47,18 @@ const Set = () => {
   };
 
   const deleteSingle = async (val) => {
-    console.log(val);
+    const filtered = items.filter((item) => item !== val);
+    setItems(filtered);
+    await updateSet(id, filtered);
+  };
+
+  const deleteRange = async (start, end) => {
+    const filtered = items.filter((item) => {
+      if (item >= start && item <= end) return false;
+      else return true;
+    });
+    setItems(filtered);
+    await updateSet(id, filtered);
   };
 
   const RenderItems = () => {
@@ -73,6 +84,7 @@ const Set = () => {
 
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
+      <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
     </>
   );
 };
@@ -81,9 +93,9 @@ const Inputs = (props) => {
   const submitSingle = () => props.submitSingle(Number(single));
   const submitRange = () => props.submitRange(Number(start), Number(end));
 
-  const [single, setSingle] = useState(34);
-  const [start, setStart] = useState(null);
-  const [end, setEnd] = useState(null);
+  const [single, setSingle] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   const handleSingle = (event) => setSingle(event.target.value);
   const handleStart = (event) => setStart(event.target.value);
@@ -110,9 +122,10 @@ const Inputs = (props) => {
 
 const Delete = (props) => {
   const deleteSingle = () => props.deleteSingle(Number(single));
-  const [single, setSingle] = useState(34);
-  const [start, setStart] = useState(null);
-  const [end, setEnd] = useState(null);
+  const deleteRange = () => props.deleteRange(Number(start), Number(end));
+  const [single, setSingle] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   const handleSingle = (event) => setSingle(event.target.value);
   const handleStart = (event) => setStart(event.target.value);
@@ -124,6 +137,14 @@ const Delete = (props) => {
         <h3>Single Delete</h3>
         <input type="number" value={single} onChange={handleSingle} />
         <button onClick={deleteSingle}>Submit</button>
+      </div>
+      <div>
+        <h3>Range Delete</h3>
+        <p>From:</p>
+        <input type="number" value={start} onChange={handleStart} />
+        <p>Through:</p>
+        <input type="number" value={end} onChange={handleEnd} />
+        <button onClick={deleteRange}>Submit</button>
       </div>
     </>
   );
