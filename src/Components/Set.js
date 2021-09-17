@@ -18,12 +18,21 @@ const Set = () => {
   }, [id]);
 
   const submitSingle = async (val) => {
-    if (items.includes(Number(val))) return;
+    if (!items) {
+      setItems([val]);
+      await updateSet(id, [val]);
+      return;
+    }
+    if (!val || items.includes(val)) return;
 
-    const newItems = items.concat(Number(val));
+    const newItems = items.concat(val);
     setItems(newItems);
 
     await updateSet(id, newItems);
+  };
+
+  const submitRange = async (start, end) => {
+    console.log(start, end);
   };
 
   const RenderItems = () => {
@@ -48,25 +57,38 @@ const Set = () => {
       <p>set</p>
 
       <RenderItems />
-      <Inputs submitSingle={submitSingle} />
+      <Inputs submitSingle={submitSingle} submitRange={submitRange} />
     </>
   );
 };
 
 const Inputs = (props) => {
-  const [single, setSingle] = useState("34");
-  const handleSingle = (event) => setSingle(event.target.value);
+  const submitSingle = () => props.submitSingle(Number(single));
+  const submitRange = () => props.submitRange(start, end);
 
-  console.log(props);
-  const submitSingle = () => props.submitSingle(single);
+  const [single, setSingle] = useState(34);
+  const [start, setStart] = useState(null);
+  const [end, setEnd] = useState(null);
+
+  const handleSingle = (event) => setSingle(event.target.value);
+  const handleStart = (event) => setStart(event.target.value);
+  const handleEnd = (event) => setEnd(event.target.value);
 
   return (
     <>
-      <label>
-        Single input:
-        <input type="text" value={single} onChange={handleSingle} />
+      <div>
+        <p>Single input:</p>
+        <input type="number" value={single} onChange={handleSingle} />
         <button onClick={submitSingle}>submit</button>
-      </label>
+      </div>
+      <div>
+        <p>Range input:</p>
+        <p>From:</p>
+        <input type="number" onChange={handleStart} />
+        <p>Through:</p>
+        <input type="number" onChange={handleEnd} />
+        <button onClick={submitRange}>Submit</button>
+      </div>
     </>
   );
 };
