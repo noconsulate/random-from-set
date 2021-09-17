@@ -27,6 +27,7 @@ const Set = () => {
   };
 
   const RenderItems = () => {
+    if (!items) return <p>no items</p>;
     return (
       <p>
         {items.map((item, index) => {
