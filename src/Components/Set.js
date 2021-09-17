@@ -7,14 +7,18 @@ const Set = () => {
   const { id } = useParams();
 
   const [items, setItems] = useState([]);
-  useEffect(async () => {
-    const data = await fetchSet(id);
-    console.log(data);
-    setItems(data);
-  }, []);
+  useEffect(() => {
+    const run = async () => {
+      const data = await fetchSet(id);
+      console.log(data);
+      setItems(data);
+    };
+
+    run();
+  }, [id]);
 
   const submitSingle = async (val) => {
-    console.log("hi", val);
+    if (items.includes(Number(val))) return;
 
     const newItems = items.concat(Number(val));
     setItems(newItems);
@@ -27,9 +31,9 @@ const Set = () => {
       <p>
         {items.map((item, index) => {
           if (index < items.length - 1) {
-            return <>{item}, </>;
+            return <React.Fragment key={index}>{item}, </React.Fragment>;
           } else {
-            return <>{item}</>;
+            return <React.Fragment key={index}>{item}</React.Fragment>;
           }
         })}
       </p>
