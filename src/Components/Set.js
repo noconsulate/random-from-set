@@ -95,12 +95,12 @@ const Inputs = (props) => {
   return (
     <>
       <div>
-        <p>Single input:</p>
+        <h3>Single Input</h3>
         <input type="number" value={single} onChange={handleSingle} />
         <button onClick={submitSingle}>submit</button>
       </div>
       <div>
-        <p>Range input:</p>
+        <h3>Range Input</h3>
         <p>From:</p>
         <input type="number" onChange={handleStart} />
         <p>Through:</p>
