@@ -25,7 +25,7 @@ const Set = () => {
     }
     if (!val || items.includes(val)) return;
 
-    const newItems = items.concat(val);
+    const newItems = items.concat(val).sort((a, b) => a - b);
     setItems(newItems);
 
     await updateSet(id, newItems);
@@ -33,6 +33,21 @@ const Set = () => {
 
   const submitRange = async (start, end) => {
     console.log(start, end);
+
+    let range = [];
+    for (let i = start; i <= end; i++) {
+      range.push(i);
+    }
+    console.log(range);
+
+    let newItems = items.concat(range).sort((a, b) => a - b);
+    console.log(newItems);
+    setItems(newItems);
+    await updateSet(id, newItems);
+  };
+
+  const deleteSingle = async (val) => {
+    console.log(val);
   };
 
   const RenderItems = () => {
@@ -64,7 +79,7 @@ const Set = () => {
 
 const Inputs = (props) => {
   const submitSingle = () => props.submitSingle(Number(single));
-  const submitRange = () => props.submitRange(start, end);
+  const submitRange = () => props.submitRange(Number(start), Number(end));
 
   const [single, setSingle] = useState(34);
   const [start, setStart] = useState(null);
@@ -88,6 +103,27 @@ const Inputs = (props) => {
         <p>Through:</p>
         <input type="number" onChange={handleEnd} />
         <button onClick={submitRange}>Submit</button>
+      </div>
+    </>
+  );
+};
+
+const Delete = (props) => {
+  const deleteSingle = () => props.deleteSingle(Number(single));
+  const [single, setSingle] = useState(34);
+  const [start, setStart] = useState(null);
+  const [end, setEnd] = useState(null);
+
+  const handleSingle = (event) => setSingle(event.target.value);
+  const handleStart = (event) => setStart(event.target.value);
+  const handleEnd = (event) => setEnd(event.target.value);
+
+  return (
+    <>
+      <div>
+        <h3>Single Delete</h3>
+        <input type="number" value={single} onChange={handleSingle} />
+        <button onClick={deleteSingle}>Submit</button>
       </div>
     </>
   );
