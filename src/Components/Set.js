@@ -5,8 +5,9 @@ import { fetchSet, updateSet } from "../Data/supabaseClient";
 
 const Set = () => {
   const { id } = useParams();
-
   const [items, setItems] = useState([]);
+  const [rand, setRand] = useState(null);
+
   useEffect(() => {
     const run = async () => {
       const data = await fetchSet(id);
@@ -56,6 +57,12 @@ const Set = () => {
     await updateSet(id, filtered);
   };
 
+  const selectRandom = () => {
+    const seed = Math.random();
+    const res = Math.floor(seed * items.length);
+    setRand(res);
+  };
+
   const RenderItems = () => {
     if (!items) return <p>no items</p>;
     return (
@@ -76,6 +83,7 @@ const Set = () => {
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
+      <Random selectRandom={selectRandom} rand={rand} />
     </>
   );
 };
@@ -141,4 +149,14 @@ const Delete = (props) => {
   );
 };
 
+const Random = (props) => {
+  const selectRandom = () => props.selectRandom();
+
+  return (
+    <>
+      <button onClick={selectRandom}>Get Rando</button>
+      <h1>{props.rand}</h1>
+    </>
+  );
+};
 export default Set;
