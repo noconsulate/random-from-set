@@ -5,6 +5,7 @@ import { fetchSet, updateSet } from "../Data/supabaseClient";
 
 const Set = () => {
   const { id } = useParams();
+  // console.log(id);
   const [items, setItems] = useState([]);
   const [rand, setRand] = useState(null);
 

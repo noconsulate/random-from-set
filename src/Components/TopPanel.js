@@ -1,21 +1,42 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { matchPath } from "react-router";
 import { supabase } from "../Data/supabaseClient";
 import "../Styles/Components/TopPanel.scss";
 
 const TopPanel = (props) => {
+  const { pathname } = useLocation();
+  const params = matchPath(pathname, { path: "/:id" });
+  let id = "";
+  if (params) id = params.params.id;
+
+  const [key, setKey] = useState(id);
+  const [placeholder, setPlaceholder] = useState("Enter key here");
+
+  const handleKey = (event) => {
+    setKey(event.target.value);
+  };
+
+  useEffect(() => {
+    if (key !== "") {
+      setPlaceholder(key);
+    }
+  }, []);
   return (
     <div className="topPanel">
       <div className="box">
         <New />
       </div>
       <div className="box">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <h2>Randos</h2>
-        </Link>
+        <input
+          type="text"
+          value={key}
+          onChange={handleKey}
+          placeholder={placeholder}
+        />
       </div>
       <div className="box">
-        <h2>old</h2>
+        <button>GO</button>
       </div>
     </div>
   );
