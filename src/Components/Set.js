@@ -22,12 +22,27 @@ const Set = () => {
     await updateSet(id, newItems);
   };
 
+  const RenderItems = () => {
+    return (
+      <p>
+        {items.map((item, index) => {
+          if (index < items.length - 1) {
+            return <>{item}, </>;
+          } else {
+            return <>{item}</>;
+          }
+        })}
+      </p>
+    );
+  };
+
   return (
     <>
       <p>id</p>
       <p>{id}</p>
       <p>set</p>
-      <p>{items}</p>
+
+      <RenderItems />
       <Inputs submitSingle={submitSingle} />
     </>
   );
