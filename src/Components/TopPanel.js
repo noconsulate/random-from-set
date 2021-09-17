@@ -17,11 +17,6 @@ const TopPanel = (props) => {
     setKey(event.target.value);
   };
 
-  useEffect(() => {
-    if (key !== "") {
-      setPlaceholder(key);
-    }
-  }, []);
   return (
     <div className="topPanel">
       <div className="box">
