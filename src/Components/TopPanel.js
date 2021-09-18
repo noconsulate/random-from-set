@@ -9,33 +9,15 @@ const TopPanel = (props) => {
   const params = matchPath(pathname, { path: "/:id" });
   let id = "";
   if (params) id = params.params.id;
+  if (id) console.log(id);
 
   const [key, setKey] = useState(id);
-  const [placeholder, setPlaceholder] = useState("Enter key here");
 
   const handleKey = (event) => {
     setKey(event.target.value);
   };
 
-  return (
-    <div className="topPanel">
-      <div className="box">
-        <New />
-      </div>
-      <div className="box">
-        <input
-          type="text"
-          value={key}
-          onChange={handleKey}
-          placeholder={placeholder}
-        />
-        <button>GO</button>
-      </div>
-    </div>
-  );
-};
-
-const New = () => {
+  // NEW button
   const history = useHistory();
 
   const handleNew = async () => {
@@ -44,14 +26,51 @@ const New = () => {
     const id = data[0].id;
 
     history.push(`/${id}`);
-    console.log(history);
+    setKey(id);
   };
+  useEffect(() => {
+    setKey(id);
+  }, []);
 
   return (
-    <button onClick={() => handleNew()} className="left">
-      New
-    </button>
+    <div className="topPanel">
+      <div className="box">
+        {/* <New /> */}
+        <button onClick={() => handleNew()} className="left">
+          New
+        </button>
+      </div>
+      <div className="box">
+        <input
+          type="text"
+          value={key}
+          onChange={handleKey}
+          placeholder="Put ID here"
+        ></input>
+        <button>GO</button>
+      </div>
+    </div>
   );
 };
+
+// const New = () => {
+//   const history = useHistory();
+
+//   const handleNew = async () => {
+//     const { data, error } = await supabase.from("instances").insert({});
+//     console.log(data, error);
+//     const id = data[0].id;
+
+//     history.push(`/${id}`);
+//     setKey(id);
+//     console.log(history);
+//   };
+
+//   return (
+//     <button onClick={() => handleNew()} className="left">
+//       New
+//     </button>
+//   );
+// };
 
 export default TopPanel;
