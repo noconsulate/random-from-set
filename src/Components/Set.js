@@ -16,7 +16,7 @@ const Set = () => {
     };
 
     run();
-  }, [id]);
+  }, [id, items]);
 
   const submitSingle = async (val) => {
     if (!val) return;

@@ -29,8 +29,6 @@ const TopPanel = (props) => {
           onChange={handleKey}
           placeholder={placeholder}
         />
-      </div>
-      <div className="box">
         <button>GO</button>
       </div>
     </div>

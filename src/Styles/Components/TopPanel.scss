@@ -1,31 +1,18 @@
 @import "../index.scss";
 
 @include breakpoint(mobile, max) {
-  // .topPanel {
-  //   display: flex;
-  //   align-items: center;
+}
+.topPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  //   padding: 0.8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
-  //   background-color: $panel-color;
-  // }
+  background-color: $panel-color;
+}
 
-  // .box {
-  //   flex: 1;
-  //   display: flex;
-  //   justify-content: center;
-
-  //   &:first-child > button {
-  //     margin-right: auto;
-  //   }
-  //   &:last-child > h2 {
-  //     margin-left: auto;
-  //   }
-  // }
-  .topPanel {
-    display: flex;
-    align-items: center;
-
-    background-color: $panel-color;
-  }
+input {
+  width: 12ch;
 }
