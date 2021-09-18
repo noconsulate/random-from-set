@@ -19,6 +19,8 @@ const Set = () => {
   }, [id]);
 
   const submitSingle = async (val) => {
+    if (!val) return;
+
     if (!items) {
       setItems([val]);
       await updateSet(id, [val]);
@@ -33,6 +35,8 @@ const Set = () => {
   };
 
   const submitRange = async (start, end) => {
+    if (!start || !end) return;
+
     let range = [];
     for (let i = start; i <= end; i++) {
       range.push(i);
@@ -50,12 +54,16 @@ const Set = () => {
   };
 
   const deleteSingle = async (val) => {
+    if (!val || !items) return;
+
     const filtered = items.filter((item) => item !== val);
     setItems(filtered);
     await updateSet(id, filtered);
   };
 
   const deleteRange = async (start, end) => {
+    if (!items || !start || !end) return;
+
     const filtered = items.filter((item) => {
       if (item >= start && item <= end) return false;
       else return true;
