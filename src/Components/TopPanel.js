@@ -50,7 +50,7 @@ const New = () => {
   };
 
   return (
-    <button onClick={() => handleNew()} className="button left">
+    <button onClick={() => handleNew()} className="left">
       New
     </button>
   );

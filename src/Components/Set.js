@@ -84,7 +84,7 @@ const Set = () => {
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
-      <Random selectRandom={selectRandom} rand={rand} />
+      <Random selectRandom={selectRandom} rand={items[rand]} />
     </>
   );
 };
