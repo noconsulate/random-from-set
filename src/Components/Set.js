@@ -82,7 +82,7 @@ const Set = () => {
     if (items) {
       return <>{items[rand]}</>;
     } else {
-      return <>xx</>;
+      return <></>;
     }
   };
 
