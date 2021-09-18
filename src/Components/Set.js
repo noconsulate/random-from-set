@@ -38,6 +38,12 @@ const Set = () => {
       range.push(i);
     }
 
+    if (!items) {
+      setItems(range);
+      await updateSet(id, range);
+      return;
+    }
+
     let newItems = items.concat(range).sort((a, b) => a - b);
     setItems(newItems);
     await updateSet(id, newItems);
@@ -64,6 +70,14 @@ const Set = () => {
     setRand(res);
   };
 
+  const DisplayRandom = () => {
+    if (items) {
+      return <>{items[rand]}</>;
+    } else {
+      return <>xx</>;
+    }
+  };
+
   const RenderItems = () => {
     if (!items) return <p>no items</p>;
     return (
@@ -84,7 +98,7 @@ const Set = () => {
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
-      <Random selectRandom={selectRandom} rand={items[rand]} />
+      <Random selectRandom={selectRandom} Rand={DisplayRandom} />
     </>
   );
 };
@@ -156,7 +170,9 @@ const Random = (props) => {
   return (
     <>
       <button onClick={selectRandom}>Get Rando</button>
-      <h1>{props.rand}</h1>
+      <h1>
+        <props.Rand />
+      </h1>
     </>
   );
 };
