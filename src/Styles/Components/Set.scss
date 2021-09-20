@@ -5,8 +5,11 @@
 
 .renderItems {
   background-color: grey;
+  padding: 0.5rem;
 
   height: 10rem;
 
   overflow: auto;
+
+  text-align: justify;
 }
