@@ -91,12 +91,12 @@ const Set = () => {
   const RenderItems = () => {
     if (!items)
       return (
-        <div className="renderItems ">
+        <div className="renderItems section">
           <p>no items</p>
         </div>
       );
     return (
-      <div className="renderItems ">
+      <div className="renderItems section ">
         <p>
           {items.map((item, index) => {
             if (index < items.length - 1) {
@@ -138,16 +138,20 @@ const Inputs = (props) => {
       <div className="row">
         <div className="column">
           <h3>Single</h3>
-          <input type="number" value={single} onChange={handleSingle} />
-          <button onClick={submitSingle}>submit</button>
+          <div>
+            <input type="number" value={single} onChange={handleSingle} />
+            <button onClick={submitSingle}>Submit</button>
+          </div>
         </div>
         <div className="column">
           <h3>Range</h3>
-          <h4>From:</h4>
+          <h4>From</h4>
           <input type="number" onChange={handleStart} />
-          <h4>Through:</h4>
+          <h4>Through</h4>
           <input type="number" onChange={handleEnd} />
-          <button onClick={submitRange}>Submit</button>
+          <div>
+            <button onClick={submitRange}>Submit</button>
+          </div>
         </div>
       </div>
     </div>
@@ -171,16 +175,20 @@ const Delete = (props) => {
       <div className="row">
         <div className="column">
           <h3>Single</h3>
-          <input type="number" value={single} onChange={handleSingle} />
-          <button onClick={deleteSingle}>Submit</button>
+          <div>
+            <input type="number" value={single} onChange={handleSingle} />
+            <button onClick={deleteSingle}>Submit</button>
+          </div>
         </div>
         <div className="column">
           <h3>Range</h3>
-          <h4>From:</h4>
+          <h4>From</h4>
           <input type="number" value={start} onChange={handleStart} />
-          <h4>Through:</h4>
+          <h4>Through</h4>
           <input type="number" value={end} onChange={handleEnd} />
-          <button onClick={deleteRange}>Submit</button>
+          <div>
+            <button onClick={deleteRange}>Submit</button>
+          </div>
         </div>
       </div>
     </div>

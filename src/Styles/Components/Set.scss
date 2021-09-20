@@ -24,8 +24,21 @@
   }
 
   .column {
-    border: 1px dotted;
+    display: flex;
+    flex-direction: column;
     width: 7rem;
+
+    * {
+      margin-bottom: 0.2rem;
+      margin-left: 0.5rem;
+    }
+
+    h3 {
+      margin-left: 0;
+      text-align: center;
+      border-bottom: 1px solid;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
