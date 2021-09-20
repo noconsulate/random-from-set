@@ -1,15 +1,38 @@
 @import "../index.scss";
-.Set {
+.set {
   height: 100%;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 3ch;
+  }
+
+  .section {
+    // margin-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .column {
+    border: 1px dotted;
+    width: 7rem;
+  }
 }
 
 .renderItems {
-  background-color: grey;
   padding: 0.5rem;
-
   height: 10rem;
-
   overflow: auto;
-
   text-align: justify;
+  border: 1px solid;
 }

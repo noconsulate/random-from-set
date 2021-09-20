@@ -91,12 +91,12 @@ const Set = () => {
   const RenderItems = () => {
     if (!items)
       return (
-        <div className="RenderItems">
+        <div className="renderItems ">
           <p>no items</p>
         </div>
       );
     return (
-      <div className="renderItems">
+      <div className="renderItems ">
         <p>
           {items.map((item, index) => {
             if (index < items.length - 1) {
@@ -111,7 +111,7 @@ const Set = () => {
   };
 
   return (
-    <div className="Set">
+    <div className="set">
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
@@ -133,21 +133,24 @@ const Inputs = (props) => {
   const handleEnd = (event) => setEnd(event.target.value);
 
   return (
-    <>
-      <div>
-        <h3>Single Input</h3>
-        <input type="number" value={single} onChange={handleSingle} />
-        <button onClick={submitSingle}>submit</button>
+    <div className="section ">
+      <h2>Insert</h2>
+      <div className="row">
+        <div className="column">
+          <h3>Single</h3>
+          <input type="number" value={single} onChange={handleSingle} />
+          <button onClick={submitSingle}>submit</button>
+        </div>
+        <div className="column">
+          <h3>Range</h3>
+          <h4>From:</h4>
+          <input type="number" onChange={handleStart} />
+          <h4>Through:</h4>
+          <input type="number" onChange={handleEnd} />
+          <button onClick={submitRange}>Submit</button>
+        </div>
       </div>
-      <div>
-        <h3>Range Input</h3>
-        <p>From:</p>
-        <input type="number" onChange={handleStart} />
-        <p>Through:</p>
-        <input type="number" onChange={handleEnd} />
-        <button onClick={submitRange}>Submit</button>
-      </div>
-    </>
+    </div>
   );
 };
 
@@ -163,21 +166,24 @@ const Delete = (props) => {
   const handleEnd = (event) => setEnd(event.target.value);
 
   return (
-    <>
-      <div>
-        <h3>Single Delete</h3>
-        <input type="number" value={single} onChange={handleSingle} />
-        <button onClick={deleteSingle}>Submit</button>
+    <div className="section ">
+      <h2>Delete</h2>
+      <div className="row">
+        <div className="column">
+          <h3>Single</h3>
+          <input type="number" value={single} onChange={handleSingle} />
+          <button onClick={deleteSingle}>Submit</button>
+        </div>
+        <div className="column">
+          <h3>Range</h3>
+          <h4>From:</h4>
+          <input type="number" value={start} onChange={handleStart} />
+          <h4>Through:</h4>
+          <input type="number" value={end} onChange={handleEnd} />
+          <button onClick={deleteRange}>Submit</button>
+        </div>
       </div>
-      <div>
-        <h3>Range Delete</h3>
-        <p>From:</p>
-        <input type="number" value={start} onChange={handleStart} />
-        <p>Through:</p>
-        <input type="number" value={end} onChange={handleEnd} />
-        <button onClick={deleteRange}>Submit</button>
-      </div>
-    </>
+    </div>
   );
 };
 
