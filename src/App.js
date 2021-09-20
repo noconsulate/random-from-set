@@ -7,7 +7,7 @@ import Set from "./Components/Set";
 
 const App = () => {
   return (
-    <div>
+    <div className="topParent">
       <TopPanel />
       <Switch>
         <Route exact path="/">
