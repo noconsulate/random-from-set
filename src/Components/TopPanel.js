@@ -36,7 +36,7 @@ const TopPanel = (props) => {
     <div className="topPanel">
       <div className="box">
         {/* <New /> */}
-        <button onClick={() => handleNew()} className="left">
+        <button onClick={() => handleNew()} className="">
           New
         </button>
       </div>
@@ -46,6 +46,7 @@ const TopPanel = (props) => {
           value={key}
           onChange={handleKey}
           placeholder="Put ID here"
+          className="id_input"
         ></input>
         <button>GO</button>
       </div>

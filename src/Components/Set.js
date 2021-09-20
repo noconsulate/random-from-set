@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
 
+import "../Styles/Components/RenderItems.scss";
+
 const Set = () => {
   const { id } = useParams();
   // console.log(id);
@@ -87,17 +89,24 @@ const Set = () => {
   };
 
   const RenderItems = () => {
-    if (!items) return <p>no items</p>;
+    if (!items)
+      return (
+        <div className="RenderItems">
+          <p>no items</p>
+        </div>
+      );
     return (
-      <p>
-        {items.map((item, index) => {
-          if (index < items.length - 1) {
-            return <React.Fragment key={index}>{item}, </React.Fragment>;
-          } else {
-            return <React.Fragment key={index}>{item}</React.Fragment>;
-          }
-        })}
-      </p>
+      <div className="RenderItems">
+        <p>
+          {items.map((item, index) => {
+            if (index < items.length - 1) {
+              return <React.Fragment key={index}>{item}, </React.Fragment>;
+            } else {
+              return <React.Fragment key={index}>{item}</React.Fragment>;
+            }
+          })}
+        </p>
+      </div>
     );
   };
 
