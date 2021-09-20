@@ -1,0 +1,12 @@
+@import "../index.scss";
+.Set {
+  height: 100%;
+}
+
+.RenderItems {
+  background-color: grey;
+
+  height: 10rem;
+
+  overflow-y: auto;
+}

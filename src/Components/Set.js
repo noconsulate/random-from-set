@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
 
-import "../Styles/Components/RenderItems.scss";
+import "../Styles/Components/Set.scss";
 
 const Set = () => {
   const { id } = useParams();
@@ -111,12 +111,12 @@ const Set = () => {
   };
 
   return (
-    <>
+    <div className="Set">
       <RenderItems />
       <Inputs submitSingle={submitSingle} submitRange={submitRange} />
       <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
       <Random selectRandom={selectRandom} Rand={DisplayRandom} />
-    </>
+    </div>
   );
 };
 

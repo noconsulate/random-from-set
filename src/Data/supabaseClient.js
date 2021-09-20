@@ -11,13 +11,10 @@ export const fetchSet = async (id) => {
     .select("items")
     .match({ id: id });
 
-  console.log(data, error);
-
   return data[0].items;
 };
 
 export const updateSet = async (id, items) => {
-  console.log(items);
   const { data, error } = await supabase
     .from("instances")
     .update({ items: items })
