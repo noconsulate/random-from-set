@@ -10,7 +10,7 @@
   }
 
   input {
-    width: 3ch;
+    width: 6ch;
   }
 
   .section {
@@ -44,7 +44,7 @@
     }
 
     button {
-      margin-left: 0;
+      // margin-left: 0;
       padding-right: 0rem;
     }
   }
@@ -59,10 +59,13 @@
 
   .rando {
     // background-color: blue;
-    // align-items: center;
+    align-items: center;
     * {
       width: fit-content;
       margin: 0;
+    }
+    .column {
+      align-items: center;
     }
   }
 }
