@@ -44,15 +44,25 @@
     }
 
     button {
-      margin-left: 0rem;
+      margin-left: 0;
+      padding-right: 0rem;
     }
   }
-}
 
-.renderItems {
-  padding: 0.5rem;
-  height: 10rem;
-  overflow: auto;
-  text-align: justify;
-  border: 1px solid;
+  .renderItems {
+    padding: 0.5rem;
+    height: 10rem;
+    overflow: auto;
+    text-align: justify;
+    border: 1px solid;
+  }
+
+  .rando {
+    // background-color: blue;
+    // align-items: center;
+    * {
+      width: fit-content;
+      margin: 0;
+    }
+  }
 }

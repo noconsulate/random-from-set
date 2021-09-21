@@ -199,12 +199,16 @@ const Random = (props) => {
   const selectRandom = () => props.selectRandom();
 
   return (
-    <>
-      <button onClick={selectRandom}>Get Rando</button>
-      <h1>
-        <props.Rand />
-      </h1>
-    </>
+    <div className="row rando">
+      <div className="column">
+        <div>
+          <button onClick={selectRandom}>Rando</button>
+        </div>
+        <h1>
+          <props.Rand />
+        </h1>
+      </div>
+    </div>
   );
 };
 export default Set;
