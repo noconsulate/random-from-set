@@ -1,5 +1,5 @@
 const root = () => {
-  return <div>hey</div>;
+  return <div>click 'new'</div>;
 };
 
 export default root;
