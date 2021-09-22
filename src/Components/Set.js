@@ -116,8 +116,8 @@ const Set = () => {
       <div className="container">
         <Inputs submitSingle={submitSingle} submitRange={submitRange} />
         <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
-        {/* <Random selectRandom={selectRandom} Rand={DisplayRandom} /> */}
       </div>
+      <Random selectRandom={selectRandom} Rand={DisplayRandom} />
     </div>
   );
 };
@@ -136,25 +136,21 @@ const Inputs = (props) => {
 
   return (
     <>
-      <div className="left">
+      <div className="child">
         <h2>Insert</h2>
       </div>
-      <div className="single">
+      <div className="child">
         <h3>Single</h3>
-        <div>
-          <input type="number" value={single} onChange={handleSingle} />
-          <button onClick={submitSingle}>Submit</button>
-        </div>
+        <input type="number" value={single} onChange={handleSingle} />
+        <button onClick={submitSingle}>Submit</button>
       </div>
-      <div className="range">
+      <div className="child">
         <h3>Range</h3>
         <h4>From</h4>
         <input type="number" onChange={handleStart} />
         <h4>Through</h4>
         <input type="number" onChange={handleEnd} />
-        <div>
-          <button onClick={submitRange}>Submit</button>
-        </div>
+        <button onClick={submitRange}>Submit</button>
       </div>
     </>
   );
@@ -173,25 +169,21 @@ const Delete = (props) => {
 
   return (
     <>
-      <div className="left">
+      <div className="child">
         <h2>Delete</h2>
       </div>
-      <div className="single">
+      <div className="child">
         <h3>Single</h3>
-        <div>
-          <input type="number" value={single} onChange={handleSingle} />
-          <button onClick={deleteSingle}>Submit</button>
-        </div>
+        <input type="number" value={single} onChange={handleSingle} />
+        <button onClick={deleteSingle}>Submit</button>
       </div>
-      <div className="range">
+      <div className="child">
         <h3>Range</h3>
         <h4>From</h4>
         <input type="number" value={start} onChange={handleStart} />
         <h4>Through</h4>
         <input type="number" value={end} onChange={handleEnd} />
-        <div>
-          <button onClick={deleteRange}>Submit</button>
-        </div>
+        <button onClick={deleteRange}>Submit</button>
       </div>
     </>
   );
@@ -201,15 +193,11 @@ const Random = (props) => {
   const selectRandom = () => props.selectRandom();
 
   return (
-    <div className="row rando">
-      <div className="column">
-        <div>
-          <button onClick={selectRandom}>Rando</button>
-        </div>
-        <h1>
-          <props.Rand />
-        </h1>
-      </div>
+    <div className="rando">
+      <button onClick={selectRandom}>Rando</button>
+      <h1>
+        <props.Rand />
+      </h1>
     </div>
   );
 };

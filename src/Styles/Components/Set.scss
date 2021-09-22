@@ -8,32 +8,42 @@
     width: 8ch;
   }
 
-  button {
-    display: block;
-  }
-
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 2rem;
 
-    .left {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      background-color: blue;
+    margin-top: 1rem;
+
+    button {
+      display: block;
     }
-    .single {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      background-color: red;
+
+    h2 {
+      border-bottom: solid 1px;
+      width: fit-content;
     }
-    .range {
-      background-color: yellow;
+
+    h3 {
+      padding-left: 1rem;
     }
+
+    .child {
+      > * {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+
+  .rando {
+    // background-color: green;
+    margin-top: 3rem;
+    text-align: center;
   }
 }
 .renderItems {
   padding: 0.5rem;
-  height: 10rem;
+  height: 15rem;
   overflow: auto;
   text-align: justify;
   border: 1px solid;
