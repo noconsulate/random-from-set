@@ -113,9 +113,9 @@ const Set = () => {
   return (
     <div className="set">
       <RenderItems />
-      <div className="container-a">
+      <div className="container">
         <Inputs submitSingle={submitSingle} submitRange={submitRange} />
-        {/* <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} /> */}
+        <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
         {/* <Random selectRandom={selectRandom} Rand={DisplayRandom} /> */}
       </div>
     </div>
@@ -139,42 +139,25 @@ const Inputs = (props) => {
       <div className="left">
         <h2>Insert</h2>
       </div>
-      <div className="right">
-        <div className="container-b">
-          <h3>Single</h3>{" "}
-          <div>
-            <input type="number" value={single} onChange={handleSingle} />
-            <button onClick={submitSingle}>Submit</button>
-          </div>
+      <div className="single">
+        <h3>Single</h3>
+        <div>
+          <input type="number" value={single} onChange={handleSingle} />
+          <button onClick={submitSingle}>Submit</button>
+        </div>
+      </div>
+      <div className="range">
+        <h3>Range</h3>
+        <h4>From</h4>
+        <input type="number" onChange={handleStart} />
+        <h4>Through</h4>
+        <input type="number" onChange={handleEnd} />
+        <div>
+          <button onClick={submitRange}>Submit</button>
         </div>
       </div>
     </>
   );
-
-  // return (
-  //   <div className="section ">
-  //     <h2>Insert</h2>
-  //     <div className="row">
-  //       <div className="column">
-  //         <h3>Single</h3>
-  //         <div>
-  //           <input type="number" value={single} onChange={handleSingle} />
-  //           <button onClick={submitSingle}>Submit</button>
-  //         </div>
-  //       </div>
-  //       <div className="column">
-  //         <h3>Range</h3>
-  //         <h4>From</h4>
-  //         <input type="number" onChange={handleStart} />
-  //         <h4>Through</h4>
-  //         <input type="number" onChange={handleEnd} />
-  //         <div>
-  //           <button onClick={submitRange}>Submit</button>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 const Delete = (props) => {
@@ -189,28 +172,28 @@ const Delete = (props) => {
   const handleEnd = (event) => setEnd(event.target.value);
 
   return (
-    <div className="section ">
-      <h2>Delete</h2>
-      <div className="row">
-        <div className="column">
-          <h3>Single</h3>
-          <div>
-            <input type="number" value={single} onChange={handleSingle} />
-            <button onClick={deleteSingle}>Submit</button>
-          </div>
-        </div>
-        <div className="column">
-          <h3>Range</h3>
-          <h4>From</h4>
-          <input type="number" value={start} onChange={handleStart} />
-          <h4>Through</h4>
-          <input type="number" value={end} onChange={handleEnd} />
-          <div>
-            <button onClick={deleteRange}>Submit</button>
-          </div>
+    <>
+      <div className="left">
+        <h2>Delete</h2>
+      </div>
+      <div className="single">
+        <h3>Single</h3>
+        <div>
+          <input type="number" value={single} onChange={handleSingle} />
+          <button onClick={deleteSingle}>Submit</button>
         </div>
       </div>
-    </div>
+      <div className="range">
+        <h3>Range</h3>
+        <h4>From</h4>
+        <input type="number" value={start} onChange={handleStart} />
+        <h4>Through</h4>
+        <input type="number" value={end} onChange={handleEnd} />
+        <div>
+          <button onClick={deleteRange}>Submit</button>
+        </div>
+      </div>
+    </>
   );
 };
 
