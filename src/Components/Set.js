@@ -136,7 +136,7 @@ const Inputs = (props) => {
 
   return (
     <>
-      <div className="child">
+      <div className="child title">
         <h2>Insert</h2>
       </div>
       <div className="child">
@@ -169,7 +169,7 @@ const Delete = (props) => {
 
   return (
     <>
-      <div className="child">
+      <div className="child title">
         <h2>Delete</h2>
       </div>
       <div className="child">

@@ -25,7 +25,12 @@
     }
 
     h3 {
-      padding-left: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
     }
 
     .child {
