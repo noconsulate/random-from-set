@@ -123,8 +123,15 @@ const Set = () => {
 };
 
 const Inputs = (props) => {
-  const submitSingle = () => props.submitSingle(Number(single));
-  const submitRange = () => props.submitRange(Number(start), Number(end));
+  const submitSingle = () => {
+    props.submitSingle(Number(single));
+    setSingle("");
+  };
+  const submitRange = () => {
+    props.submitRange(Number(start), Number(end));
+    setStart("");
+    setEnd("");
+  };
 
   const [single, setSingle] = useState("");
   const [start, setStart] = useState("");
@@ -147,9 +154,9 @@ const Inputs = (props) => {
       <div className="child">
         <h3>Range</h3>
         <h4>From</h4>
-        <input type="number" onChange={handleStart} />
+        <input type="number" value={start} onChange={handleStart} />
         <h4>Through</h4>
-        <input type="number" onChange={handleEnd} />
+        <input type="number" value={end} onChange={handleEnd} />
         <button onClick={submitRange}>Submit</button>
       </div>
     </>
@@ -157,8 +164,15 @@ const Inputs = (props) => {
 };
 
 const Delete = (props) => {
-  const deleteSingle = () => props.deleteSingle(Number(single));
-  const deleteRange = () => props.deleteRange(Number(start), Number(end));
+  const deleteSingle = () => {
+    props.deleteSingle(Number(single));
+    setSingle("");
+  };
+  const deleteRange = () => {
+    props.deleteRange(Number(start), Number(end));
+    setStart("");
+    setEnd("");
+  };
   const [single, setSingle] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
