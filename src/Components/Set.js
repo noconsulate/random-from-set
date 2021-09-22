@@ -113,9 +113,11 @@ const Set = () => {
   return (
     <div className="set">
       <RenderItems />
-      <Inputs submitSingle={submitSingle} submitRange={submitRange} />
-      <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
-      <Random selectRandom={selectRandom} Rand={DisplayRandom} />
+      <div className="container-a">
+        <Inputs submitSingle={submitSingle} submitRange={submitRange} />
+        {/* <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} /> */}
+        {/* <Random selectRandom={selectRandom} Rand={DisplayRandom} /> */}
+      </div>
     </div>
   );
 };
@@ -133,29 +135,46 @@ const Inputs = (props) => {
   const handleEnd = (event) => setEnd(event.target.value);
 
   return (
-    <div className="section ">
-      <h2>Insert</h2>
-      <div className="row">
-        <div className="column">
-          <h3>Single</h3>
+    <>
+      <div className="left">
+        <h2>Insert</h2>
+      </div>
+      <div className="right">
+        <div className="container-b">
+          <h3>Single</h3>{" "}
           <div>
             <input type="number" value={single} onChange={handleSingle} />
             <button onClick={submitSingle}>Submit</button>
           </div>
         </div>
-        <div className="column">
-          <h3>Range</h3>
-          <h4>From</h4>
-          <input type="number" onChange={handleStart} />
-          <h4>Through</h4>
-          <input type="number" onChange={handleEnd} />
-          <div>
-            <button onClick={submitRange}>Submit</button>
-          </div>
-        </div>
       </div>
-    </div>
+    </>
   );
+
+  // return (
+  //   <div className="section ">
+  //     <h2>Insert</h2>
+  //     <div className="row">
+  //       <div className="column">
+  //         <h3>Single</h3>
+  //         <div>
+  //           <input type="number" value={single} onChange={handleSingle} />
+  //           <button onClick={submitSingle}>Submit</button>
+  //         </div>
+  //       </div>
+  //       <div className="column">
+  //         <h3>Range</h3>
+  //         <h4>From</h4>
+  //         <input type="number" onChange={handleStart} />
+  //         <h4>Through</h4>
+  //         <input type="number" onChange={handleEnd} />
+  //         <div>
+  //           <button onClick={submitRange}>Submit</button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 const Delete = (props) => {
