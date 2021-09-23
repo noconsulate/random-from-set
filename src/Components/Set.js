@@ -41,7 +41,7 @@ const Set = () => {
 
     let range = [];
     for (let i = start; i <= end; i++) {
-      range.push(i);
+      if (!items.includes(i)) range.push(i);
     }
 
     if (!items) {
