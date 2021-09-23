@@ -146,16 +146,24 @@ const Inputs = (props) => {
       <div className="child title">
         <h2>Insert</h2>
       </div>
-      <div className="child">
-        <h3>Single</h3>
-        <input type="number" value={single} onChange={handleSingle} />
+      <div className="child sub-grid">
+        <h3 className="row">Single</h3>
+        <h4 className="row" style={{ visibility: "hidden" }}>
+          BLANK
+        </h4>
+        <input
+          className="row"
+          type="number"
+          value={single}
+          onChange={handleSingle}
+        />
         <button onClick={submitSingle}>Submit</button>
       </div>
-      <div className="child">
-        <h3>Range</h3>
+      <div className="child sub-grid">
+        <h3 className="row">Range</h3>
         <h4>From</h4>
-        <input type="number" value={start} onChange={handleStart} />
         <h4>Through</h4>
+        <input type="number" value={start} onChange={handleStart} />
         <input type="number" value={end} onChange={handleEnd} />
         <button onClick={submitRange}>Submit</button>
       </div>
@@ -186,16 +194,25 @@ const Delete = (props) => {
       <div className="child title">
         <h2>Delete</h2>
       </div>
-      <div className="child">
-        <h3>Single</h3>
-        <input type="number" value={single} onChange={handleSingle} />
+      <div className="child sub-grid">
+        <h3 className="row">Single</h3>
+        <h4 className="row" style={{ visibility: "hidden" }}>
+          BLANK
+        </h4>
+        <input
+          className="row"
+          type="number"
+          value={single}
+          onChange={handleSingle}
+        />
         <button onClick={deleteSingle}>Submit</button>
       </div>
-      <div className="child">
-        <h3>Range</h3>
+      <div className="child sub-grid">
+        <h3 className="row">Range</h3>
         <h4>From</h4>
-        <input type="number" value={start} onChange={handleStart} />
         <h4>Through</h4>
+
+        <input type="number" value={start} onChange={handleStart} />
         <input type="number" value={end} onChange={handleEnd} />
         <button onClick={deleteRange}>Submit</button>
       </div>

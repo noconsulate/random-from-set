@@ -10,13 +10,14 @@
 
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1.5fr;
     row-gap: 2rem;
 
     margin-top: 1rem;
 
     button {
       display: block;
+      width: fit-content;
     }
 
     h2 {
@@ -25,7 +26,7 @@
     }
 
     h3 {
-      padding-left: 0.5rem;
+      // padding-left: 0.5rem;
     }
 
     .title {
@@ -36,6 +37,19 @@
     .child {
       > * {
         margin-bottom: 0.3rem;
+      }
+    }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .row {
+        grid-column-start: 1;
+        grid-column-end: span 2;
+      }
+      .cell {
+        grid-column-end: span 1;
       }
     }
   }
