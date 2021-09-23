@@ -1,8 +1,8 @@
 @import "../index.scss";
 .set {
   height: 100%;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
+  // padding-left: 0.4rem;
+  // padding-right: 0.4rem;
 
   input {
     width: 8ch;
@@ -13,7 +13,8 @@
     grid-template-columns: 1fr 1fr 1.5fr;
     row-gap: 2rem;
 
-    margin-top: 1rem;
+    // padding: 0.2rem;
+    // margin-top: 1rem;
 
     button {
       display: block;
@@ -62,21 +63,15 @@
   }
 }
 .renderItems {
-  padding: 0.5rem;
+  // padding: 0.5rem;
   height: 15rem;
   overflow: auto;
   text-align: justify;
   border: 1px solid;
 }
 
-// .rando {
-//   // background-color: blue;
-//   align-items: center;
-//   * {
-//     width: fit-content;
-//     margin: 0;
-//   }
-//   .column {
-//     align-items: center;
-//   }
-// }
+@include breakpoint(mobile, min) {
+  .set {
+    background-color: blue;
+  }
+}

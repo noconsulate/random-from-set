@@ -38,6 +38,6 @@ html {
 
 .topParent {
   height: 100%;
-  max-width: 420px;
+  max-width: map-get($breakpoints, mobile);
   margin: 0 auto;
 }

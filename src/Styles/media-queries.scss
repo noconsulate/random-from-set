@@ -1,8 +1,9 @@
 // A map of breakpoints.
 $breakpoints: (
-  mobile: 768px,
+  // mobile: 768px,
+  mobile: 420px,
   laptop: 1020px,
-  desktop-lg: 1800px,
+  desktop-lg: 1800px
 );
 
 @mixin breakpoint($breakpoint, $direction) {
