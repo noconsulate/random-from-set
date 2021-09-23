@@ -63,15 +63,20 @@
   }
 }
 .renderItems {
-  // padding: 0.5rem;
+  padding: 0.3rem;
+  margin-bottom: 0.6rem;
   height: 15rem;
   overflow: auto;
   text-align: justify;
   border: 1px solid;
 }
 
-@include breakpoint(mobile, min) {
+@include breakpoint(mobile, max) {
   .set {
-    background-color: blue;
+    padding: 0.3rem;
+  }
+
+  .container {
+    padding: 1rem;
   }
 }
