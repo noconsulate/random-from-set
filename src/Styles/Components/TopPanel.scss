@@ -7,15 +7,16 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  // padding-top: 1rem;
+  // padding-bottom: 1rem;
+  // padding-left: 0.5rem;
+  // padding-right: 0.5rem;
+  padding: 0.5rem;
 
   background-color: $panel-color;
 
   input {
-    width: 12ch;
+    width: 13ch;
     // font-size: 1.3rem;
   }
 
