@@ -115,6 +115,7 @@ const Set = () => {
       <RenderItems />
       <div className="container">
         <Inputs submitSingle={submitSingle} submitRange={submitRange} />
+        <div className="rowSpacer"></div>
         <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
       </div>
       <Random selectRandom={selectRandom} Rand={DisplayRandom} />
@@ -143,30 +144,41 @@ const Inputs = (props) => {
 
   return (
     <>
-      <div className="child title">
+      <div></div>
+      <div>
+        <h4>Single</h4>
+      </div>
+      <div>
+        <h4>From</h4>
+      </div>
+      <div>
+        <h4>Through</h4>
+      </div>
+      <div className="title">
         <h2>Insert</h2>
       </div>
-      <div className="child sub-grid">
-        {/* <h3 className="row">Single</h3>
-        <h4 className="row" style={{ visibility: "hidden" }}>
-          BLANK
-        </h4> */}
-        <h4>Single</h4>
+      <div>
         <input
           className="row"
           type="number"
           value={single}
           onChange={handleSingle}
         />
+      </div>
+      <div>
+        <input type="number" value={start} onChange={handleStart} />
+      </div>
+      <div>
+        <input type="number" value={end} onChange={handleEnd} />
+      </div>
+      <div></div>
+      <div>
         <button onClick={submitSingle}>Submit</button>
       </div>
-      <div className="child sub-grid">
-        <h4>From</h4>
-        <h4>Through</h4>
-        <input type="number" value={start} onChange={handleStart} />
-        <input type="number" value={end} onChange={handleEnd} />
+      <div>
         <button onClick={submitRange}>Submit</button>
       </div>
+      <div></div>
     </>
   );
 };
@@ -191,30 +203,41 @@ const Delete = (props) => {
 
   return (
     <>
-      <div className="child title">
+      <div></div>
+      <div>
+        <h4>Single</h4>
+      </div>
+      <div>
+        <h4>From</h4>
+      </div>
+      <div>
+        <h4>From</h4>
+      </div>
+      <div className="title">
         <h2>Delete</h2>
       </div>
-      <div className="child sub-grid">
-        {/* <h4 className="row" style={{ visibility: "hidden" }}>
-          BLANK
-        </h4> */}
-        <h4>Single</h4>
+      <div>
         <input
           className="row"
           type="number"
           value={single}
           onChange={handleSingle}
         />
+      </div>
+      <div>
+        <input type="number" value={start} onChange={handleStart} />
+      </div>
+      <div>
+        <input type="number" value={end} onChange={handleEnd} />
+      </div>
+      <div></div>
+      <div>
         <button onClick={deleteSingle}>Submit</button>
       </div>
-      <div className="child sub-grid">
-        <h4>From</h4>
-        <h4>Through</h4>
-
-        <input type="number" value={start} onChange={handleStart} />
-        <input type="number" value={end} onChange={handleEnd} />
+      <div>
         <button onClick={deleteRange}>Submit</button>
       </div>
+      <div></div>
     </>
   );
 };

@@ -6,54 +6,34 @@
 
   input {
     width: 7ch;
-    margin-top: 0.2rem;
+    // margin-bottom: 0.4rem;
   }
 
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    row-gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 0.2rem;
 
-    // padding: 0.2rem;
-    // margin-top: 1rem;
+    .twoCells {
+      grid-column-end: span 2;
+      display: flex;
+      // justify-content: end;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     button {
-      display: block;
+      // display: block;
       width: fit-content;
-    }
-
-    h2 {
-      border-bottom: solid 1px;
-      width: fit-content;
-    }
-
-    h3 {
-      padding-bottom: 0.2rem;
     }
 
     .title {
-      // display: flex;
-      // align-items: center;
-      // padding-top: 1rem;
-    }
-
-    .child {
-      > * {
-        margin-bottom: 0.3rem;
-      }
-    }
-
-    .sub-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      .row {
-        grid-column-start: 1;
-        grid-column-end: span 2;
-      }
-      .cell {
-        grid-column-end: span 1;
-      }
+      display: flex;
+      justify-content: start;
     }
   }
 
@@ -65,6 +45,11 @@
       margin-top: 1.5rem;
     }
   }
+}
+
+.rowSpacer {
+  grid-column-end: span 4;
+  height: 20px;
 }
 .renderItems {
   padding: 0.3rem;
