@@ -9,7 +9,7 @@
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 0.2rem;
+    row-gap: 0.4rem;
 
     .twoCells {
       grid-column-end: span 2;

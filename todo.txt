@@ -1,4 +1,1 @@
-validate inputs
-handle range input on null items
-handle delete range cases
-prevent duplicate inputs
+info/help/about
