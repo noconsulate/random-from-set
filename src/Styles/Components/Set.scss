@@ -1,12 +1,9 @@
 @import "../index.scss";
 .set {
   height: 100%;
-  // padding-left: 0.4rem;
-  // padding-right: 0.4rem;
 
   input {
     width: 7ch;
-    // margin-bottom: 0.4rem;
   }
 
   .container {
@@ -17,7 +14,6 @@
     .twoCells {
       grid-column-end: span 2;
       display: flex;
-      // justify-content: end;
     }
 
     div {
@@ -27,7 +23,6 @@
     }
 
     button {
-      // display: block;
       width: fit-content;
     }
 
@@ -38,7 +33,6 @@
   }
 
   .rando {
-    // background-color: green;
     margin-top: 1.5rem;
     text-align: center;
     h1 {
