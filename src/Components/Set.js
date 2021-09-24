@@ -147,10 +147,11 @@ const Inputs = (props) => {
         <h2>Insert</h2>
       </div>
       <div className="child sub-grid">
-        <h3 className="row">Single</h3>
+        {/* <h3 className="row">Single</h3>
         <h4 className="row" style={{ visibility: "hidden" }}>
           BLANK
-        </h4>
+        </h4> */}
+        <h4>Single</h4>
         <input
           className="row"
           type="number"
@@ -160,7 +161,6 @@ const Inputs = (props) => {
         <button onClick={submitSingle}>Submit</button>
       </div>
       <div className="child sub-grid">
-        <h3 className="row">Range</h3>
         <h4>From</h4>
         <h4>Through</h4>
         <input type="number" value={start} onChange={handleStart} />
@@ -195,10 +195,10 @@ const Delete = (props) => {
         <h2>Delete</h2>
       </div>
       <div className="child sub-grid">
-        <h3 className="row">Single</h3>
-        <h4 className="row" style={{ visibility: "hidden" }}>
+        {/* <h4 className="row" style={{ visibility: "hidden" }}>
           BLANK
-        </h4>
+        </h4> */}
+        <h4>Single</h4>
         <input
           className="row"
           type="number"
@@ -208,7 +208,6 @@ const Delete = (props) => {
         <button onClick={deleteSingle}>Submit</button>
       </div>
       <div className="child sub-grid">
-        <h3 className="row">Range</h3>
         <h4>From</h4>
         <h4>Through</h4>
 
