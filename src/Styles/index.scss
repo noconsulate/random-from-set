@@ -36,6 +36,12 @@ html {
   height: 100%;
 }
 
+#root {
+  height: 100%;
+  max-width: map-get($breakpoints, mobile);
+  margin: 0 auto;
+}
+
 .topParent {
   height: 100%;
   max-width: map-get($breakpoints, mobile);

@@ -111,15 +111,17 @@ const Set = () => {
   };
 
   return (
-    <div className="set">
-      <RenderItems />
-      <div className="container">
-        <Inputs submitSingle={submitSingle} submitRange={submitRange} />
-        <div className="rowSpacer"></div>
-        <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
+    <>
+      <div className="set">
+        <RenderItems />
+        <div className="container">
+          <Inputs submitSingle={submitSingle} submitRange={submitRange} />
+          <div className="rowSpacer"></div>
+          <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
+        </div>
+        <Random selectRandom={selectRandom} Rand={DisplayRandom} />
       </div>
-      <Random selectRandom={selectRandom} Rand={DisplayRandom} />
-    </div>
+    </>
   );
 };
 

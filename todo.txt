@@ -1,1 +1,2 @@
-info/help/about
+from external link preview
+link to root from /set
