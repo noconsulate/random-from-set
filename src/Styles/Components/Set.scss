@@ -9,6 +9,8 @@
   }
 
   .container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 0.4rem;
@@ -49,7 +51,7 @@
 }
 .renderItems {
   padding: 0.3rem;
-  margin-bottom: 0.6rem;
+  // margin-bottom: 0.6rem;
   height: 15rem;
   overflow: auto;
   text-align: justify;
