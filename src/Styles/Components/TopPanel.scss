@@ -17,11 +17,17 @@
 
   input {
     width: 13ch;
-    // font-size: 1.3rem;
+    display: inline-block;
   }
 
   button {
     // font-size: 1.3rem;
+    display: inline-block;
+  }
+
+  .box {
+    display: flex;
+    align-items: center;
   }
 }
 
