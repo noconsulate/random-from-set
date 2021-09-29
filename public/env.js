@@ -1,3 +1,0 @@
-window.env = {
-  "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzMTczMDU4MiwiZXhwIjoxOTQ3MzA2NTgyfQ.qLUqjBdhtPYmjniHzmdhNvBNIs9OPu49HK_XKejBj3k"
-};
