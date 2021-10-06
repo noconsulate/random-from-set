@@ -1,13 +1,13 @@
 @import "../index.scss";
 
 .root {
-}
+  margin-top: 3rem;
+  padding: 1rem;
 
-// .container {
-//   margin-top: 3rem;
-//   padding: 1rem;
-// }
-
-p {
-  margin-bottom: 1rem;
+  p {
+    margin-bottom: 1rem;
+    // letter-spacing: 0.04rem;
+    text-align: justify;
+    text-justify: auto;
+  }
 }

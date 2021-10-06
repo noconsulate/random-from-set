@@ -2,7 +2,7 @@ import "../Styles/Components/Root.scss";
 
 const root = () => {
   return (
-    <div className="container">
+    <div className="root">
       <p>
         Welcome to <em>Randos</em>.
       </p>
