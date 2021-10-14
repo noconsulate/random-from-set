@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { ServiceWorkerUpdateListener } from "./ServiceWorkerUpdateListener.js";
 
@@ -7,22 +7,33 @@ import Root from "./Components/Root";
 import Set from "./Components/Set";
 
 const App = () => {
-  const listener = new ServiceWorkerUpdateListener();
-  listener.onupdateinstalling = (installingevent) => {
-    console.log("SW installed");
-  };
-  listener.onupdatewaiting = (waitingevent) => {
-    console.log("new update waiting");
-  };
+  const [updateWaiting, setUpdateWaiting] = useState(false);
 
-  navigator.serviceWorker
-    .getRegistration()
-    .then((reg) => listener.addRegistration(reg));
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "development") {
+      let listener = new ServiceWorkerUpdateListener();
+      listener.onupdateinstalling = (installingEvent) => {
+        console.log("SW installed", installingEvent);
+      };
+      listener.onupdatewaiting = (waitingEvent) => {
+        console.log("new update waiting", waitingEvent);
+        setUpdateWaiting(true);
+      };
+      navigator.serviceWorker
+        .getRegistration()
+        .then((reg) => listener.addRegistration(reg));
+
+      return () => listener.removeEventListener();
+    } else {
+      //do nothing
+    }
+  }, []);
 
   return (
     <div className="topParent">
       <h1>fgf</h1>
       <TopPanel />
+      <UpdateReady updateWaiting={updateWaiting} />
       <Switch>
         <Route exact path="/">
           <Root />
@@ -32,6 +43,16 @@ const App = () => {
         </Route>
       </Switch>
     </div>
+  );
+};
+
+const UpdateReady = ({ updateWaiting }) => {
+  if (updateWaiting) return <>no update</>;
+
+  return (
+    <>
+      <h1>ready</h1>
+    </>
   );
 };
 
