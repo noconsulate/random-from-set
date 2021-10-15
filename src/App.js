@@ -10,7 +10,7 @@ import UpdateBanner from "./Components/UpdateBanner";
 import "./Styles/index.scss";
 
 const App = () => {
-  const [updateWaiting, setUpdateWaiting] = useState(1);
+  const [updateWaiting, setUpdateWaiting] = useState(false);
   const [registration, setRegistration] = useState(null);
   const [swListener, setSwListener] = useState({});
 
@@ -60,7 +60,7 @@ const App = () => {
 };
 
 const Spacer = () => {
-  return <div className="spacer">hi</div>;
+  return <div className="spacer"></div>;
 };
 
 export default App;

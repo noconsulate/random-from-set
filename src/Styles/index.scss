@@ -44,9 +44,15 @@ html {
 }
 
 .topParent {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   max-width: map-get($breakpoints, mobile);
   margin: 0 auto;
+}
+
+.spacer {
+  flex: 1;
 }
 
 @include breakpoint(mobile, max) {
