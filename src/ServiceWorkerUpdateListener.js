@@ -147,6 +147,6 @@ export class ServiceWorkerUpdateListener extends EventTarget {
    * @param {ServiceWorker} serviceWorker
    */
   skipWaiting(serviceWorker) {
-    serviceWorker.postMessage("skipWaiting");
+      serviceWorker.postMessage({ type: 'SKIP_WAITING'});
   }
 }

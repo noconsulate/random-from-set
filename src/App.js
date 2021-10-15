@@ -8,10 +8,13 @@ import Set from "./Components/Set";
 
 const App = () => {
   const [updateWaiting, setUpdateWaiting] = useState(false);
+  const [registration, setRegistration] = useState(null);
+  const [swListener, setSwListener] = useState({});
 
   useEffect(() => {
     if (process.env.NODE_ENV !== "development") {
       let listener = new ServiceWorkerUpdateListener();
+      setSwListener(listener);
       listener.onupdateinstalling = (installingEvent) => {
         console.log("SW installed", installingEvent);
       };
@@ -19,9 +22,10 @@ const App = () => {
         console.log("new update waiting", waitingEvent);
         setUpdateWaiting(true);
       };
-      navigator.serviceWorker
-        .getRegistration()
-        .then((reg) => listener.addRegistration(reg));
+      navigator.serviceWorker.getRegistration().then((reg) => {
+        listener.addRegistration(reg);
+        setRegistration(reg);
+      });
 
       return () => listener.removeEventListener();
     } else {
@@ -29,11 +33,17 @@ const App = () => {
     }
   }, []);
 
+  const refreshApp = () => {
+    console.log(registration, swListener);
+    swListener.skipWaiting(registration.waiting);
+    window.location.reload();
+  };
+
   return (
     <div className="topParent">
-      <h1>fgf</h1>
+      <h1>fgfsdsdsddddfdddddxx33fddd</h1>
       <TopPanel />
-      <UpdateReady updateWaiting={updateWaiting} />
+      <UpdateReady updateWaiting={updateWaiting} refreshApp={refreshApp} />
       <Switch>
         <Route exact path="/">
           <Root />
@@ -46,13 +56,22 @@ const App = () => {
   );
 };
 
-const UpdateReady = ({ updateWaiting }) => {
-  if (updateWaiting) return <>no update</>;
+const UpdateReady = ({ updateWaiting, refreshApp }) => {
+  console.log(updateWaiting);
+  if (!updateWaiting)
+    return (
+      <div>
+        <p>no update</p>
+      </div>
+    );
 
   return (
-    <>
-      <h1>ready</h1>
-    </>
+    <div className="updateReady">
+      <h4>A ne w version of Randos is ready!</h4>
+      <h4>
+        <a onClick={refreshApp}>Click here</a> to install.
+      </h4>
+    </div>
   );
 };
 
