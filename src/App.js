@@ -5,9 +5,12 @@ import { ServiceWorkerUpdateListener } from "./ServiceWorkerUpdateListener.js";
 import TopPanel from "./Components/TopPanel";
 import Root from "./Components/Root";
 import Set from "./Components/Set";
+import UpdateBanner from "./Components/UpdateBanner";
+
+import "./Styles/index.scss";
 
 const App = () => {
-  const [updateWaiting, setUpdateWaiting] = useState(false);
+  const [updateWaiting, setUpdateWaiting] = useState(1);
   const [registration, setRegistration] = useState(null);
   const [swListener, setSwListener] = useState({});
 
@@ -41,9 +44,7 @@ const App = () => {
 
   return (
     <div className="topParent">
-      <h1>fgfsdsdsddddfdddddxx33fddd</h1>
       <TopPanel />
-      <UpdateReady updateWaiting={updateWaiting} refreshApp={refreshApp} />
       <Switch>
         <Route exact path="/">
           <Root />
@@ -52,27 +53,14 @@ const App = () => {
           <Set />
         </Route>
       </Switch>
+      <Spacer />
+      <UpdateBanner updateWaiting={updateWaiting} refreshApp={refreshApp} />
     </div>
   );
 };
 
-const UpdateReady = ({ updateWaiting, refreshApp }) => {
-  console.log(updateWaiting);
-  if (!updateWaiting)
-    return (
-      <div>
-        <p>no update</p>
-      </div>
-    );
-
-  return (
-    <div className="updateReady">
-      <h4>A ne w version of Randos is ready!</h4>
-      <h4>
-        <a onClick={refreshApp}>Click here</a> to install.
-      </h4>
-    </div>
-  );
+const Spacer = () => {
+  return <div className="spacer">hi</div>;
 };
 
 export default App;
