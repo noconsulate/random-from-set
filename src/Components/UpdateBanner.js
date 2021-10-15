@@ -9,9 +9,8 @@ const UpdateBanner = ({ updateWaiting, refreshApp }) => {
       <h4>A new version of Randos is ready!</h4>
       <h4>
         <a href="" onClick={refreshApp}>
-          Click here
-        </a>{" "}
-        to install.
+          Click here to install.
+        </a>
       </h4>
     </div>
   );
