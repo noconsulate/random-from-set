@@ -67,7 +67,9 @@ registerRoute(
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
-    console.log("message received", self);
+    self.clients.matchAll().then((clients) => {
+      console.log("clientss", clients);
+    });
   }
 });
 

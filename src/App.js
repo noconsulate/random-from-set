@@ -25,6 +25,10 @@ const App = () => {
         console.log("new update waiting", waitingEvent);
         setUpdateWaiting(true);
       };
+      listener.onupdateready = (event) => {
+        console.log("updateready event");
+        window.location.reload();
+      };
       navigator.serviceWorker.getRegistration().then((reg) => {
         listener.addRegistration(reg);
         setRegistration(reg);
@@ -32,14 +36,13 @@ const App = () => {
 
       return () => listener.removeEventListener();
     } else {
-      //do nothing
+      //do nothing because no sw in development
     }
   }, []);
 
   const refreshApp = () => {
     console.log(registration, swListener);
     swListener.skipWaiting(registration.waiting);
-    window.location.reload();
   };
 
   return (
@@ -60,7 +63,7 @@ const App = () => {
 };
 
 const Spacer = () => {
-  return <div className="spacer"></div>;
+  return <div className="spacer">dd*</div>;
 };
 
 export default App;
