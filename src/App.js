@@ -19,14 +19,14 @@ const App = () => {
       let listener = new ServiceWorkerUpdateListener();
       setSwListener(listener);
       listener.onupdateinstalling = (installingEvent) => {
-        console.log("SW installed", installingEvent);
+        // console.log("SW installed", installingEvent);
       };
       listener.onupdatewaiting = (waitingEvent) => {
-        console.log("new update waiting", waitingEvent);
+        // console.log("new update waiting", waitingEvent);
         setUpdateWaiting(true);
       };
       listener.onupdateready = (event) => {
-        console.log("updateready event");
+        // console.log("updateready event");
         window.location.reload();
       };
       navigator.serviceWorker.getRegistration().then((reg) => {
