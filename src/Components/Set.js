@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
+import { putIdb } from "../IndexedDB";
 
 import "../Styles/Components/Set.scss";
 
@@ -53,6 +54,10 @@ const Set = () => {
     let newItems = items.concat(range).sort((a, b) => a - b);
     setItems(newItems);
     await updateSet(id, newItems);
+
+    let setObj = { id: id, items: newItems };
+    let res = await putIdb(id, setObj);
+    console.log(res);
   };
 
   const deleteSingle = async (val) => {
