@@ -5,6 +5,9 @@ const anonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
 export const supabase = createClient(url, anonKey);
 
+// for debugging, delete later
+window.supabase = supabase;
+
 export const fetchSet = async (id) => {
   const { data, error } = await supabase
     .from("instances")

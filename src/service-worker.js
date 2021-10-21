@@ -71,3 +71,35 @@ self.addEventListener("message", (event) => {
 });
 
 // Any other custom service worker logic can go here.
+registerRoute(
+  ({ url, request }) => {
+    console.log("sw REQUEST", url, request);
+  },
+  null,
+  "POST"
+);
+
+registerRoute(
+  ({ url, request }) => {
+    console.log("sw REQUEST", url, request);
+  },
+  null,
+  "PATCH"
+);
+registerRoute(({ url, request }) => {
+  console.log("sw REQUEST", url, request);
+});
+
+registerRoute(
+  ({ url }) => {
+    console.log(
+      url.host,
+      "ppbqvsnrvcnabajxwwhf.supabase.co",
+      url.host == "ppbqvsnrvcnabajxwwhf.supabase.co"
+    );
+    return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
+  },
+  ({ url, request }) => {
+    console.log("supabase request");
+  }
+);
