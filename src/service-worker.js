@@ -90,6 +90,7 @@ self.addEventListener("message", (event) => {
 //   console.log("sw REQUEST", url, request);
 // });
 
+// this works, but when user does PATCH the data isn't cached until reload
 registerRoute(({ url }) => {
   return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
 }, new StaleWhileRevalidate());
