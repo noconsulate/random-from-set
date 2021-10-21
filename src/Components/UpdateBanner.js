@@ -1,7 +1,6 @@
 import "../Styles/Components/UpdateBanner.scss";
 
 const UpdateBanner = ({ updateWaiting, refreshApp }) => {
-  console.log(updateWaiting);
   if (!updateWaiting) return <div></div>;
 
   return (

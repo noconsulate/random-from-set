@@ -9,7 +9,6 @@ const TopPanel = (props) => {
   const params = matchPath(pathname, { path: "/:id" });
   let id = "";
   if (params) id = params.params.id;
-  if (id) console.log(id);
 
   const [key, setKey] = useState(id);
 
