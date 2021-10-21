@@ -90,11 +90,6 @@ self.addEventListener("message", (event) => {
 //   console.log("sw REQUEST", url, request);
 // });
 
-registerRoute(
-  ({ url }) => {
-    return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
-  },
-  ({ url, request }) => {
-    console.log("supabase request");
-  }
-);
+registerRoute(({ url }) => {
+  return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
+}, new StaleWhileRevalidate());

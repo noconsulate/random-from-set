@@ -64,7 +64,7 @@ const App = () => {
 };
 
 const Spacer = () => {
-  return <div className="spacer">dd*</div>;
+  return <div className="spacer"></div>;
 };
 
 export default App;
