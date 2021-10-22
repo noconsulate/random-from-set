@@ -12,6 +12,8 @@ import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
 import { StaleWhileRevalidate } from "workbox-strategies";
+import { BackgroundSyncPlugin } from "workbox-background-sync";
+import { NetworkOnly } from "workbox-strategies";
 
 clientsClaim();
 
@@ -94,3 +96,17 @@ self.addEventListener("message", (event) => {
 registerRoute(({ url }) => {
   return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
 }, new StaleWhileRevalidate());
+
+const bgSyncPlugin = new BackgroundSyncPlugin("PATCH-que", {
+  maxRetentionTyime: 24 * 60,
+});
+
+registerRoute(
+  ({ url }) => {
+    return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
+  },
+  new NetworkOnly({
+    plugins: [bgSyncPlugin],
+  }),
+  "PATCH"
+);
