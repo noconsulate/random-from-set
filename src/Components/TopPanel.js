@@ -9,12 +9,15 @@ const TopPanel = (props) => {
   const params = matchPath(pathname, { path: "/:id" });
   let id = "";
   if (params) id = params.params.id;
-  if (id) console.log(id);
 
   const [key, setKey] = useState(id);
 
   const handleKey = (event) => {
     setKey(event.target.value);
+  };
+
+  const handleGo = () => {
+    history.push(`/${key}`);
   };
 
   // NEW button
@@ -48,7 +51,7 @@ const TopPanel = (props) => {
           placeholder="Put ID here"
           className="id_input"
         ></input>
-        <button>GO</button>
+        <button onClick={handleGo}>GO</button>
       </div>
     </div>
   );
