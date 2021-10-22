@@ -16,6 +16,10 @@ const TopPanel = (props) => {
     setKey(event.target.value);
   };
 
+  const handleGo = () => {
+    history.push(`/${key}`);
+  };
+
   // NEW button
   const history = useHistory();
 
@@ -47,7 +51,7 @@ const TopPanel = (props) => {
           placeholder="Put ID here"
           className="id_input"
         ></input>
-        <button>GO</button>
+        <button onClick={handleGo}>GO</button>
       </div>
     </div>
   );
