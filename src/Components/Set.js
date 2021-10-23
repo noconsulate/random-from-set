@@ -52,9 +52,6 @@ const Set = () => {
     let newItems = items.concat(range).sort((a, b) => a - b);
     setItems(newItems);
     await updateSet(id, newItems);
-
-    let setObj = { id: id, items: newItems };
-    console.log(res);
   };
 
   const deleteSingle = async (val) => {
