@@ -11,9 +11,12 @@ import { clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
-import { StaleWhileRevalidate } from "workbox-strategies";
 import { BackgroundSyncPlugin } from "workbox-background-sync";
-import { NetworkOnly, NetworkFirst } from "workbox-strategies";
+import {
+  NetworkOnly,
+  NetworkFirst,
+  StaleWhileRevalidate,
+} from "workbox-strategies";
 
 clientsClaim();
 
@@ -93,9 +96,14 @@ self.addEventListener("message", (event) => {
 // });
 
 // this works, but when user does PATCH the data isn't cached until reload
-registerRoute(({ url }) => {
-  return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
-}, new NetworkFirst());
+registerRoute(
+  ({ url }) => {
+    return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
+  },
+  new NetworkFirst({
+    cacheName: "supabase-GET",
+  })
+);
 
 const bgSyncPlugin = new BackgroundSyncPlugin("PATCH-que", {
   maxRetentionTyime: 24 * 60,
@@ -106,6 +114,7 @@ registerRoute(
     return url.host === "ppbqvsnrvcnabajxwwhf.supabase.co";
   },
   new NetworkOnly({
+    cacheName: "supabase-PATCH",
     plugins: [bgSyncPlugin],
   }),
   "PATCH"

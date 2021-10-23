@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
-import { putIdb, addIdb } from "../IndexedDB";
 
 import "../Styles/Components/Set.scss";
 
 const Set = () => {
   const { id } = useParams();
-  // console.log(id);
   const [items, setItems] = useState([]);
   const [rand, setRand] = useState(null);
 
@@ -56,7 +54,6 @@ const Set = () => {
     await updateSet(id, newItems);
 
     let setObj = { id: id, items: newItems };
-    let res = await putIdb(id, setObj);
     console.log(res);
   };
 
