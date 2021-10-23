@@ -39,14 +39,18 @@ const Set = () => {
     if (!start || !end) return;
 
     let range = [];
-    for (let i = start; i <= end; i++) {
-      if (!items.includes(i)) range.push(i);
-    }
 
     if (!items) {
+      for (let i = start; i <= end; i++) {
+        range.push(i);
+      }
       setItems(range);
       await updateSet(id, range);
       return;
+    }
+
+    for (let i = start; i <= end; i++) {
+      if (!items.includes(i)) range.push(i);
     }
 
     let newItems = items.concat(range).sort((a, b) => a - b);
