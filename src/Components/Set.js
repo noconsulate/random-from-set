@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { openDB } from "idb";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
 
@@ -17,6 +18,18 @@ const Set = () => {
     };
 
     run();
+
+    // if offline, check if workbox-background-sync has newer data waiting to sync
+    if (navigator.onLine) return;
+    (async function () {
+      const db = await openDB("workbox-background-sync");
+      const requests = await db.getAllFromIndex("requests", "queueName");
+
+      window.db = db;
+      window.requests = requests;
+
+      console.log(requests);
+    })();
   }, [id]);
 
   const submitSingle = async (val) => {
