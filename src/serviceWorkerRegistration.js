@@ -92,6 +92,12 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+      // get permission for notifications
+      Notification.requestPermission((status) => {
+        console.log("Notification permission status: ", status);
+      });
+      // random notification
+      // registration.showNotification("notification thing");
     })
     .catch((error) => {
       console.error("Error during service worker registration:", error);
