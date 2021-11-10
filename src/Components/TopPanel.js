@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { matchPath } from "react-router";
 import { supabase } from "../Data/supabaseClient";
 import "../Styles/Components/TopPanel.scss";
@@ -33,7 +33,7 @@ const TopPanel = (props) => {
   };
   useEffect(() => {
     setKey(id);
-  }, []);
+  }, [id]);
 
   return (
     <div className="topPanel">

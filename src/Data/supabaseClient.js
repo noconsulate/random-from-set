@@ -14,6 +14,7 @@ export const fetchSet = async (id) => {
     .select("items")
     .match({ id: id });
 
+  console.log(data, error);
   return data[0].items;
 };
 

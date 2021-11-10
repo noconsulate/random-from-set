@@ -7,9 +7,7 @@ const UpdateBanner = ({ updateWaiting, refreshApp }) => {
     <div className="update-banner">
       <h4>A new version of Randos is ready!</h4>
       <h4>
-        <a href="" onClick={refreshApp}>
-          Click here to install.
-        </a>
+        <button onClick={refreshApp}>Click here to install.</button>
       </h4>
     </div>
   );
