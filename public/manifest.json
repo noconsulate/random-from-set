@@ -3,7 +3,7 @@
   "name": "Randos from Set",
   "icons": [
     {
-       "src": "mylogo192.png",
+       "src": "mylogo64.png",
       "type": "image/png",
       "sizes": "64x64"
     },
@@ -20,7 +20,7 @@
     {
       "src": "maskable_icon.png",
       "type": "image/png",
-      "size": "512x512",
+      "sizes": "512x512",
       "purpose": "any maskable"
     }
   ],
