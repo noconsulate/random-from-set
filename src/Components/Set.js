@@ -25,35 +25,16 @@ const Set = () => {
     // if offline, check if workbox-background-sync has newer data waiting to sync
     // i need to figure out how to read workbox's syncing requests
     if (navigator.onLine) return;
-    (async function () {
-      const db = await openDB("workbox-background-sync");
-      const requests = await db.getAllFromIndex("requests", "queueName");
+    // (async function () {
+    //   const db = await openDB("workbox-background-sync");
+    //   const requests = await db.getAllFromIndex("requests", "queueName");
 
-      window.db = db;
-      window.requests = requests;
+    //   window.db = db;
+    //   window.requests = requests;
 
-      console.log(requests);
-    })();
+    //   console.log(requests);
+    // })();
   }, [id]);
-
-  // const randomNotification = (itemsParam) => {
-  //   console.log("random notification");
-  //   // get random lenght of time in ms between 1 and 180 minutes
-  //   let time = Math.floor(Math.random() * (180 - 1 + 1) + 1) * 60 * 1000;
-  //   // select random item from set
-  //   const seed = Math.random();
-  //   const res = Math.floor(seed * itemsParam.length);
-  //   console.log(seed, res, itemsParam);
-  //   const item = itemsParam[res];
-  //   console.log(time);
-  //   setTimeout(() => {
-  //     console.log("notification");
-  //     navigator.serviceWorker.getRegistration().then(function (reg) {
-  //       reg.showNotification("Rando: " + item);
-  //     });
-  //     randomNotification(itemsParam);
-  //   }, time);
-  // };
 
   const submitSingle = async (val) => {
     if (!val) return;

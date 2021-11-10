@@ -23,6 +23,7 @@ const root = () => {
         <a
           href="https://github.com/noconsulate/random-from-set"
           target="_blank"
+          rel="noreferrer"
         >
           repository
         </a>
