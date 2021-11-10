@@ -4,8 +4,6 @@ import { openDB } from "idb";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
 
-import Notifications from "./Notifications";
-
 import "../Styles/Components/Set.scss";
 
 const Set = () => {
@@ -161,7 +159,6 @@ const Set = () => {
           <Delete deleteSingle={deleteSingle} deleteRange={deleteRange} />
         </div>
         <Random selectRandom={selectRandom} Rand={DisplayRandom} />
-        <Notifications />
       </div>
     </>
   );
