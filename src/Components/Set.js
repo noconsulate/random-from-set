@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { openDB } from "idb";
 
 import { fetchSet, updateSet } from "../Data/supabaseClient";
 
@@ -24,7 +23,7 @@ const Set = () => {
 
     // if offline, check if workbox-background-sync has newer data waiting to sync
     // i need to figure out how to read workbox's syncing requests
-    if (navigator.onLine) return;
+    // if (navigator.onLine) return;
     // (async function () {
     //   const db = await openDB("workbox-background-sync");
     //   const requests = await db.getAllFromIndex("requests", "queueName");
