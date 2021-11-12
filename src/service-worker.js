@@ -76,26 +76,6 @@ self.addEventListener("message", (event) => {
   }
 });
 
-// Any other custom service worker logic can go here.
-// registerRoute(
-//   ({ url, request }) => {
-//     console.log("sw REQUEST", url, request);
-//   },
-//   null,
-//   "POST"
-// );
-
-// registerRoute(
-//   ({ url, request }) => {
-//     console.log("sw REQUEST", url, request);
-//   },
-//   null,
-//   "PATCH"
-// );
-// registerRoute(({ url, request }) => {
-//   console.log("sw REQUEST", url, request);
-// });
-
 // this works, but when user does PATCH the data isn't cached until reload
 registerRoute(
   ({ url }) => {

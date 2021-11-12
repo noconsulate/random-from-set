@@ -13,13 +13,10 @@ const Set = () => {
   useEffect(() => {
     (async function () {
       const data = await fetchSet(id);
-
-      // if (Notification.permission == "granted") {
-      //   randomNotification(data);
-      // }
-
       setItems(data);
     })();
+
+    localStorage.setItem("setId", id);
 
     // if offline, check if workbox-background-sync has newer data waiting to sync
     // i need to figure out how to read workbox's syncing requests
@@ -156,8 +153,8 @@ const Inputs = (props) => {
   };
 
   const [single, setSingle] = useState("");
-  const [start, setStart] = useState("1");
-  const [end, setEnd] = useState("20");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   const handleSingle = (event) => setSingle(event.target.value);
   const handleStart = (event) => setStart(event.target.value);

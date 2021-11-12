@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { ServiceWorkerUpdateListener } from "./ServiceWorkerUpdateListener.js";
 
 import TopPanel from "./Components/TopPanel";
@@ -10,11 +10,21 @@ import UpdateBanner from "./Components/UpdateBanner";
 import "./Styles/index.scss";
 
 const App = () => {
+  const history = useHistory();
+
   const [updateWaiting, setUpdateWaiting] = useState(false);
   const [registration, setRegistration] = useState(null);
   const [swListener, setSwListener] = useState({});
 
   useEffect(() => {
+    if (window.location.pathname === "/") {
+      let setId = localStorage.getItem("setId");
+      console.log(setId);
+      if (setId) {
+        history.push(`/${setId}`);
+      }
+    }
+
     if (process.env.NODE_ENV !== "development") {
       let listener = new ServiceWorkerUpdateListener();
       setSwListener(listener);
